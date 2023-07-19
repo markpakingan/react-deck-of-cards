@@ -1,23 +1,30 @@
+// App.js file
+
+
 import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import NewDeck from './NewDeck';
+import DrawCard from './DrawCard';
 
 function App() {
+
+  const [deckID, setDeckID] = useState(null);
+
+  const handleDeckID = (newDeckID) => {
+    setDeckID(newDeckID)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NewDeck />
+      <DrawCard />
+
+      {/* {deckID ? 
+      (<DrawCard deckID = {deckID} />):
+      (<NewDeck handleDeckID={handleDeckID} />)
+      }
+
+      <DrawCard deckID={deckID}/> */}
     </div>
   );
 }
