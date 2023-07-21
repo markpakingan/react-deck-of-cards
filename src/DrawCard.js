@@ -4,19 +4,20 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 const DrawCard = ({deckID}) => {
-    // const [cards, setCards] = useState([]);
     
-    const fetchCard = () => {
-        axios.get(`https://deckofcardsapi.com/api/deck/{deckID}/draw/?count=2`)
-        .then(response => {console.log("Am I working?");})
-        .catch(error => {
-            console.error(error)
-        })
-    }
+   useEffect(()=> {
+    axios.get(`https://deckofcardsapi.com/api/deck/${deckID}/draw/?count=2`).then(
+        response => {
+            console.log(response.data.deckID);
+        }).catch(error => {
+            console.error(error);
+        });
+   }, [deckID]);
+ 
     
     return (
         <div>
-            <button onClick={fetchCard}>Draw Card</button>
+            <button >Draw Card</button>
         </div>
     )
 }

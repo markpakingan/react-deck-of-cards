@@ -17,14 +17,8 @@ function App() {
   return (
     <div className="App">
       <NewDeck />
-      <DrawCard />
 
-      {/* {deckID ? 
-      (<DrawCard deckID = {deckID} />):
-      (<NewDeck handleDeckID={handleDeckID} />)
-      }
-
-      <DrawCard deckID={deckID}/> */}
+      
     </div>
   );
 }
